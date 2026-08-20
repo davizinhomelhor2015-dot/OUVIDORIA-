@@ -1,0 +1,17 @@
+{
+  "rules": {
+    "suggestions": {
+      ".read": "auth != null",
+      "$id": {
+        ".write": "auth != null || !data.exists()",
+        ".validate": "newData.hasChildren(['name','message']) && newData.child('name').isString() && newData.child('name').val().length > 0 && newData.child('name').val().length <= 60 && newData.child('message').isString() && newData.child('message').val().length > 0 && newData.child('message').val().length <= 1000"
+      }
+    },
+
+    "banned": {
+      ".read": true,
+      ".write": "auth != null",
+      ".indexOn": ["value"]
+    }
+  }
+}
