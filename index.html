@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ouvidoria · DP Lynwood</title>
+<meta name="theme-color" content="#09090b">
+<meta name="description" content="Canal oficial de sugestões, elogios e reclamações do DP Lynwood.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0%25' stop-color='%23f7e6ab'/%3E%3Cstop offset='46%25' stop-color='%23e2bd55'/%3E%3Cstop offset='100%25' stop-color='%23b8912f'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='32' height='32' fill='%2309090b'/%3E%3Cpath d='M16 5 L27 16 L16 27 L5 16 Z' fill='url(%23g)'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&family=Barlow:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --void:#09090b; --void2:#0f0f13; --panel:#151519; --panel2:#0d0d11;
+  --line:rgba(212,175,55,.16); --line2:rgba(230,230,235,.07); --line3:rgba(212,175,55,.32);
+  --gold:#e8c66b; --gold-d:#c9a227;
+  --red:#e0384a; --red-b:#ff6b76; --red-d:#7a1420;
+  --green:#3fca7d; --amber:#f0a83c;
+  --steel:#e8eaee; --body:#b4b8c0; --muted:#7f838d; --muted2:#555962;
+  --r:16px; --r-sm:10px; --maxw:640px;
+  --disp:'Oswald',system-ui,sans-serif; --text:'Barlow',system-ui,sans-serif; --mono:'JetBrains Mono',monospace;
+  --gg:linear-gradient(135deg,#f7e6ab 0%,#e2bd55 46%,#b8912f 100%);
+  --gg-soft:linear-gradient(135deg,rgba(247,230,171,.16),rgba(184,145,47,.06));
+}
+*{box-sizing:border-box}
+html{scrollbar-color:var(--gold-d) var(--void2)}
+body{margin:0;background:var(--void);color:var(--body);font-family:var(--text);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;min-height:100vh;
+  background-image:
+    radial-gradient(1000px 560px at 82% -10%,rgba(212,175,55,.07),transparent 60%),
+    radial-gradient(760px 520px at -6% 8%,rgba(212,175,55,.04),transparent 55%),
+    linear-gradient(rgba(212,175,55,.05) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(212,175,55,.05) 1px,transparent 1px);
+  background-size:auto,auto,44px 44px,44px 44px;
+  background-attachment:fixed}
+a{color:inherit;text-decoration:none}
+::-webkit-scrollbar{width:10px;height:10px}
+::-webkit-scrollbar-track{background:var(--void2)}
+::-webkit-scrollbar-thumb{background:var(--gold-d);border-radius:99px;border:2px solid var(--void2)}
+:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+@keyframes riseIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+.hero{animation:riseIn .5s ease both}
+.card{animation:riseIn .5s .08s ease both}
+
+.topbar{position:sticky;top:0;z-index:60;display:flex;align-items:center;gap:.8rem;padding:.7rem clamp(1rem,3vw,2rem);background:rgba(9,9,11,.82);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.mark{display:flex;align-items:center;gap:.55rem;font-family:var(--disp);font-weight:700;letter-spacing:.16em;font-size:.92rem;color:var(--steel)}
+.mark b{background:var(--gg);-webkit-background-clip:text;background-clip:text;color:transparent}
+.mark span{width:9px;height:9px;background:var(--gg);box-shadow:0 0 12px rgba(232,198,107,.6);clip-path:polygon(50% 0,100% 50%,50% 100%,0 50%)}
+.sp{flex:1}
+.navlink{font-family:var(--disp);font-weight:600;letter-spacing:.1em;font-size:.7rem;text-transform:uppercase;color:var(--muted);border:1px solid var(--line);padding:.45rem .85rem;border-radius:99px;transition:.15s}
+.navlink:hover{border-color:var(--gold);color:var(--gold)}
+
+.wrap{max-width:var(--maxw);margin:0 auto;padding:clamp(1.6rem,4vw,3rem) 1.2rem 4rem}
+.hero{text-align:center;margin-bottom:1.8rem}
+.hero .badge{display:inline-flex;align-items:center;gap:.45rem;font-family:var(--disp);font-weight:600;letter-spacing:.2em;text-transform:uppercase;font-size:.62rem;color:var(--gold);border:1px solid var(--line3);padding:.32rem .75rem;border-radius:99px;background:var(--gg-soft);margin-bottom:1rem}
+.hero .badge::before{content:"◆";font-size:.55rem}
+.hero h1{font-family:var(--disp);font-weight:700;text-transform:uppercase;letter-spacing:.01em;font-size:clamp(1.7rem,5vw,2.5rem);color:var(--steel);margin:0 0 .6rem}
+.hero p{margin:0;color:var(--muted);font-size:.95rem;max-width:48ch;margin:0 auto}
+
+.card{position:relative;border:1px solid var(--line);border-radius:var(--r);background:linear-gradient(158deg,var(--panel),var(--panel2));padding:clamp(1.4rem,4vw,2rem)}
+.card .corner{position:absolute;top:9px;right:11px;width:14px;height:14px;border-top:2px solid var(--line3);border-right:2px solid var(--line3)}
+.card .corner2{position:absolute;bottom:9px;left:11px;width:14px;height:14px;border-bottom:2px solid var(--line3);border-left:2px solid var(--line3)}
+
+.rules{display:grid;grid-template-columns:1fr 1fr;gap:.6rem;margin-bottom:1.6rem}
+@media(max-width:520px){.rules{grid-template-columns:1fr}}
+.rules div{position:relative;padding:.6rem .8rem .6rem 1.9rem;border:1px solid var(--line2);border-radius:var(--r-sm);background:rgba(255,255,255,.014);font-size:.8rem;color:var(--body);line-height:1.45}
+.rules div::before{content:"◆";position:absolute;left:.75rem;top:.66rem;color:var(--gold);font-size:.55rem}
+
+label{display:block;font-family:var(--disp);font-weight:600;letter-spacing:.08em;text-transform:uppercase;font-size:.72rem;color:var(--steel);margin-bottom:.5rem}
+.field{margin-bottom:1.3rem}
+input[type=text],textarea{
+  width:100%;border:1.5px solid var(--line);border-radius:var(--r-sm);padding:.75rem .9rem;
+  font-size:.95rem;font-family:var(--text);color:var(--steel);background:var(--void2);
+  transition:border-color .15s, box-shadow .15s;
+}
+input[type=text]:focus,textarea:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 3px rgba(212,175,55,.14)}
+textarea{min-height:140px;resize:vertical;line-height:1.55}
+.charcount{text-align:right;font-family:var(--mono);font-size:.68rem;color:var(--muted2);margin-top:.35rem;transition:color .15s}
+.charcount.near{color:var(--amber)}
+.charcount.full{color:var(--red-b)}
+
+.callout{display:none;gap:.7rem;align-items:flex-start;margin-top:.7rem;padding:.85rem 1rem;border:1px solid rgba(240,168,60,.4);border-left:3px solid var(--amber);border-radius:var(--r-sm);background:rgba(240,168,60,.08);font-size:.82rem;color:#ffdc8a;line-height:1.5}
+.callout.show{display:flex}
+.callout.blocking{border-color:rgba(224,56,74,.4);border-left-color:var(--red);background:rgba(224,56,74,.08);color:var(--red-b)}
+.callout .ic{flex-shrink:0}
+
+.blockbox{display:none;gap:.7rem;align-items:flex-start;margin-bottom:1.4rem;padding:1rem 1.15rem;border:1px solid rgba(224,56,74,.4);border-left:3px solid var(--red);border-radius:var(--r-sm);background:linear-gradient(120deg,rgba(224,56,74,.12),transparent 70%);font-size:.88rem;color:var(--red-b);line-height:1.5}
+.blockbox.show{display:flex}
+
+.btn{font-family:var(--disp);font-weight:700;letter-spacing:.1em;font-size:.82rem;text-transform:uppercase;border:none;border-radius:99px;padding:.85rem 1.2rem;cursor:pointer;width:100%;
+  background:var(--gg);color:#151006;box-shadow:0 4px 20px rgba(212,175,55,.25);transition:.18s;
+  display:flex;align-items:center;justify-content:center;gap:.5rem}
+.btn:hover{filter:brightness(1.06)}
+.btn:disabled{background:#3a3a3f;color:#7f838d;box-shadow:none;cursor:not-allowed}
+.spinner{width:14px;height:14px;border-radius:50%;border:2px solid rgba(21,16,6,.35);border-top-color:#151006;animation:spin .7s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+.statusmsg{display:none;gap:.6rem;align-items:flex-start;margin-top:1rem;padding:.85rem 1rem;border-radius:var(--r-sm);font-size:.85rem;line-height:1.5}
+.statusmsg.show{display:flex}
+.statusmsg.ok{border:1px solid rgba(63,202,125,.4);background:rgba(63,202,125,.1);color:var(--green)}
+.statusmsg.err{border:1px solid rgba(224,56,74,.4);background:rgba(224,56,74,.1);color:var(--red-b)}
+
+.foot{text-align:center;margin-top:2rem;font-family:var(--mono);font-size:.68rem;color:var(--muted2);line-height:1.7}
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="mark"><span></span> <b>DP LYNWOOD</b></div>
+  <div class="sp"></div>
+</header>
+
+<div class="wrap">
+  <div class="hero">
+    <span class="badge">Canal Oficial</span>
+    <h1>Ouvidoria DP Lynwood</h1>
+    <p>Envie sua sugestão, elogio ou reclamação sobre a corporação. Sua mensagem é registrada e analisada pelo Comando.</p>
+  </div>
+
+  <div class="card">
+    <div class="corner"></div>
+    <div class="corner2"></div>
+
+    <div class="rules">
+      <div>Escreva com respeito. Mensagens com linguagem imprópria não são enviadas.</div>
+      <div>O nome é obrigatório para identificar quem enviou o registro.</div>
+    </div>
+
+    <div id="blockBox" class="blockbox">
+      🚫 Este dispositivo está bloqueado para novos envios devido a registros anteriores.
+    </div>
+
+    <form id="suggestionForm" autocomplete="off">
+      <div class="field">
+        <label for="nameInput">Nome / ID Policial</label>
+        <input type="text" id="nameInput" maxlength="60" placeholder="Digite seu nome" required />
+        <div id="nameWarn" class="callout blocking"><span class="ic">⛔</span><span>Detectamos linguagem imprópria no nome. Remova antes de enviar — o envio fica bloqueado enquanto isso não for corrigido.</span></div>
+      </div>
+
+      <div class="field">
+        <label for="messageInput">Sugestão / Elogio / Reclamação</label>
+        <textarea id="messageInput" maxlength="1000" placeholder="Descreva com detalhes..." required></textarea>
+        <div class="charcount"><span id="charCount">0</span><span id="charMax">/1000</span></div>
+        <div id="msgWarn" class="callout blocking"><span class="ic">⛔</span><span>Detectamos linguagem imprópria no texto. Remova antes de enviar — o envio fica bloqueado enquanto isso não for corrigido.</span></div>
+      </div>
+
+      <button type="submit" class="btn" id="submitBtn"><span id="submitLabel">📨 Enviar Registro</span></button>
+      <div id="statusMsg" class="statusmsg"></div>
+    </form>
+  </div>
+
+  <div class="foot">
+    🛡 Todos os registros incluem data, dispositivo e IP para fins de moderação pelo Comando.<br/>
+    Envios com linguagem imprópria são bloqueados automaticamente e não chegam a ser salvos.
+  </div>
+</div>
+
+<!-- ==================== FIREBASE ==================== -->
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-database-compat.js"></script>
+<script>
+  const firebaseConfig = {
+    apiKey: "AIzaSyDVIKbfNVw4_iQGdiLrJhRfcPSVNjeZDLU",
+    authDomain: "comando-geral-98c87.firebaseapp.com",
+    databaseURL: "https://comando-geral-98c87-default-rtdb.firebaseio.com",
+    projectId: "comando-geral-98c87",
+    storageBucket: "comando-geral-98c87.firebasestorage.app",
+    messagingSenderId: "744810462465",
+    appId: "1:744810462465:web:075ce2c6fdad28e6b1ef00"
+  };
+  firebase.initializeApp(firebaseConfig);
+  const db = firebase.database();
+</script>
+
+<script>
+  const PALAVRAS_PROIBIDAS = [
+    "arrombad","babaca","bosta","boceta","bunda","burro","caralho","cacete",
+    "corno","cu","desgraç","escroto","filho da puta","fdp","foda","fodas",
+    "fodase","fudido","gonorrei","idiota","imbecil","krl","lixo","maldito",
+    "merda","otari","otario","otário","piranha","porra","puta","putaria",
+    "retardad","safad","tabaco","vadia","vagabund","viad","xoxota"
+  ];
+  function normalizarTexto(txt){
+    return txt.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g,"")
+      .replace(/0/g,"o").replace(/1/g,"i").replace(/3/g,"e")
+      .replace(/4/g,"a").replace(/5/g,"s").replace(/7/g,"t")
+      .replace(/@/g,"a").replace(/\$/g,"s");
+  }
+  function detectarPalavroes(texto){
+    const norm = normalizarTexto(texto);
+    const tokens = norm.split(/[^a-z]+/).filter(Boolean);
+    const encontradas = [];
+    for(const p of PALAVRAS_PROIBIDAS){
+      const alvo = normalizarTexto(p);
+      if(alvo.includes(" ")){
+        // frases (ex.: "filho da puta") — busca no texto completo
+        if(norm.includes(alvo)) encontradas.push(p);
+        continue;
+      }
+      // palavras curtas (<=3 letras, ex.: "cu", "fdp") exigem correspondência exata,
+      // para não confundir com palavras comuns (ex.: "escuro" contém "cu").
+      // palavras maiores usam prefixo, para pegar variações (ex.: "arrombad" -> arrombado/arrombada).
+      const bate = alvo.length <= 3
+        ? tokens.some(t => t === alvo)
+        : tokens.some(t => t === alvo || t.startsWith(alvo));
+      if(bate) encontradas.push(p);
+    }
+    return encontradas;
+  }
+</script>
+
+<script>
+  function getDeviceId(){
+    let id = localStorage.getItem("ouvidoria_device_id");
+    if(!id){ id = "dev-" + Math.random().toString(36).slice(2) + Date.now().toString(36); localStorage.setItem("ouvidoria_device_id", id); }
+    return id;
+  }
+  function getFingerprint(){
+    const parts = [navigator.userAgent, navigator.language, navigator.platform, screen.width+"x"+screen.height, new Date().getTimezoneOffset()].join("|");
+    let hash = 0;
+    for(let i=0;i<parts.length;i++){ hash = ((hash << 5) - hash) + parts.charCodeAt(i); hash |= 0; }
+    return "fp-" + Math.abs(hash).toString(36);
+  }
+  async function getIP(){
+    try{ const res = await fetch("https://api.ipify.org?format=json"); const data = await res.json(); return data.ip || "desconhecido"; }
+    catch(e){ return "desconhecido"; }
+  }
+  async function verificarBanimento(ip, deviceId, fingerprint){
+    const valores = [ip, deviceId, fingerprint].filter(v => v && v !== "desconhecido");
+    if(valores.length === 0) return false;
+    const queries = valores.map(v => db.ref("banned").orderByChild("value").equalTo(v).limitToFirst(1).once("value"));
+    const snaps = await Promise.all(queries);
+    return snaps.some(s => s.exists());
+  }
+</script>
+
+<script>
+  const form = document.getElementById("suggestionForm");
+  const nameInput = document.getElementById("nameInput");
+  const messageInput = document.getElementById("messageInput");
+  const nameWarn = document.getElementById("nameWarn");
+  const msgWarn = document.getElementById("msgWarn");
+  const charCount = document.getElementById("charCount");
+  const statusMsg = document.getElementById("statusMsg");
+  const submitBtn = document.getElementById("submitBtn");
+  const submitLabel = document.getElementById("submitLabel");
+  const blockBox = document.getElementById("blockBox");
+
+  messageInput.addEventListener("input", () => {
+    const len = messageInput.value.length;
+    charCount.textContent = len;
+    charCount.parentElement.classList.toggle("near", len >= 850 && len < 1000);
+    charCount.parentElement.classList.toggle("full", len >= 1000);
+    msgWarn.classList.toggle("show", detectarPalavroes(messageInput.value).length > 0);
+  });
+  nameInput.addEventListener("input", () => {
+    nameWarn.classList.toggle("show", detectarPalavroes(nameInput.value).length > 0);
+  });
+
+  function setStatus(kind, html){ statusMsg.className = "statusmsg show " + kind; statusMsg.innerHTML = html; }
+
+  (async () => {
+    try{
+      const deviceId = getDeviceId(); const fingerprint = getFingerprint(); const ip = await getIP();
+      window.__ip = ip; window.__deviceId = deviceId; window.__fingerprint = fingerprint;
+      if(await verificarBanimento(ip, deviceId, fingerprint)){
+        blockBox.classList.add("show"); submitBtn.disabled = true; submitLabel.textContent = "🚫 Envio bloqueado";
+      }
+    }catch(e){}
+  })();
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    statusMsg.className = "statusmsg";
+    const nome = nameInput.value.trim();
+    const mensagem = messageInput.value.trim();
+    if(!nome || !mensagem){ setStatus("err", "⚠️ Preencha nome e mensagem antes de enviar."); return; }
+
+    // Linguagem imprópria bloqueia o envio por completo — nada é salvo no banco
+    // enquanto o nome ou a mensagem contiverem alguma das palavras da lista.
+    const palavroesNome = detectarPalavroes(nome);
+    const palavroesMsg = detectarPalavroes(mensagem);
+    if(palavroesNome.length + palavroesMsg.length > 0){
+      nameWarn.classList.toggle("show", palavroesNome.length > 0);
+      msgWarn.classList.toggle("show", palavroesMsg.length > 0);
+      setStatus("err", "⛔ Sua mensagem contém linguagem imprópria e não foi enviada. Revise o texto e tente novamente.");
+      return;
+    }
+
+    submitBtn.disabled = true;
+    submitLabel.innerHTML = '<span class="spinner"></span> Enviando...';
+
+    try{
+      const ip = window.__ip || await getIP();
+      const deviceId = window.__deviceId || getDeviceId();
+      const fingerprint = window.__fingerprint || getFingerprint();
+
+      if(await verificarBanimento(ip, deviceId, fingerprint)){
+        blockBox.classList.add("show");
+        setStatus("err", "🚫 Este dispositivo está bloqueado para novos envios.");
+        submitBtn.disabled = true; submitLabel.textContent = "🚫 Envio bloqueado";
+        return; // fica desabilitado — não passa pelo reset abaixo (só sucesso/erro genérico reabilitam)
+      }
+
+      await db.ref("suggestions").push({
+        name: nome, message: mensagem,
+        ip, deviceId, fingerprint, userAgent: navigator.userAgent,
+        status: "active", createdAt: firebase.database.ServerValue.TIMESTAMP
+      });
+
+      form.reset(); charCount.textContent = "0";
+      nameWarn.classList.remove("show"); msgWarn.classList.remove("show");
+      setStatus("ok", "✅ Registro enviado com sucesso. Obrigado pela contribuição.");
+      submitBtn.disabled = false; submitLabel.textContent = "📨 Enviar Registro";
+    }catch(err){
+      console.error(err);
+      setStatus("err", "❌ Não foi possível enviar agora. Verifique sua conexão e tente novamente.");
+      submitBtn.disabled = false; submitLabel.textContent = "📨 Enviar Registro";
+    }
+  });
+</script>
+</body>
+</html>
