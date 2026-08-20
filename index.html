@@ -35,6 +35,8 @@ a{color:inherit;text-decoration:none}
 ::-webkit-scrollbar-track{background:var(--void2)}
 ::-webkit-scrollbar-thumb{background:var(--gold-d);border-radius:99px;border:2px solid var(--void2)}
 :focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.icon{width:1em;height:1em;display:inline-block;vertical-align:-0.16em;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
+.icon.filled{fill:currentColor;stroke:none}
 @keyframes riseIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
 .hero{animation:riseIn .5s ease both}
 .card{animation:riseIn .5s .08s ease both}
@@ -54,13 +56,14 @@ a{color:inherit;text-decoration:none}
 .hero h1{font-family:var(--disp);font-weight:700;text-transform:uppercase;letter-spacing:.01em;font-size:clamp(1.7rem,5vw,2.5rem);color:var(--steel);margin:0 0 .6rem}
 .hero p{margin:0;color:var(--muted);font-size:.95rem;max-width:48ch;margin:0 auto}
 
-.card{position:relative;border:1px solid var(--line);border-radius:var(--r);background:linear-gradient(158deg,var(--panel),var(--panel2));padding:clamp(1.4rem,4vw,2rem)}
+.card{position:relative;border:1px solid var(--line);border-radius:var(--r);background:linear-gradient(158deg,var(--panel),var(--panel2));padding:clamp(1.4rem,4vw,2rem);box-shadow:0 24px 70px -28px rgba(0,0,0,.7),0 1px 0 rgba(255,255,255,.03) inset}
 .card .corner{position:absolute;top:9px;right:11px;width:14px;height:14px;border-top:2px solid var(--line3);border-right:2px solid var(--line3)}
 .card .corner2{position:absolute;bottom:9px;left:11px;width:14px;height:14px;border-bottom:2px solid var(--line3);border-left:2px solid var(--line3)}
 
 .rules{display:grid;grid-template-columns:1fr 1fr;gap:.6rem;margin-bottom:1.6rem}
 @media(max-width:520px){.rules{grid-template-columns:1fr}}
-.rules div{position:relative;padding:.6rem .8rem .6rem 1.9rem;border:1px solid var(--line2);border-radius:var(--r-sm);background:rgba(255,255,255,.014);font-size:.8rem;color:var(--body);line-height:1.45}
+.rules div{position:relative;padding:.6rem .8rem .6rem 1.9rem;border:1px solid var(--line2);border-radius:var(--r-sm);background:rgba(255,255,255,.014);font-size:.8rem;color:var(--body);line-height:1.45;transition:border-color .15s,background .15s}
+.rules div:hover{border-color:var(--line3);background:rgba(255,255,255,.024)}
 .rules div::before{content:"◆";position:absolute;left:.75rem;top:.66rem;color:var(--gold);font-size:.55rem}
 
 label{display:block;font-family:var(--disp);font-weight:600;letter-spacing:.08em;text-transform:uppercase;font-size:.72rem;color:var(--steel);margin-bottom:.5rem}
@@ -68,9 +71,10 @@ label{display:block;font-family:var(--disp);font-weight:600;letter-spacing:.08em
 input[type=text],textarea{
   width:100%;border:1.5px solid var(--line);border-radius:var(--r-sm);padding:.75rem .9rem;
   font-size:.95rem;font-family:var(--text);color:var(--steel);background:var(--void2);
+  box-shadow:0 1px 3px rgba(0,0,0,.35) inset;
   transition:border-color .15s, box-shadow .15s;
 }
-input[type=text]:focus,textarea:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 3px rgba(212,175,55,.14)}
+input[type=text]:focus,textarea:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 3px rgba(212,175,55,.14),0 1px 3px rgba(0,0,0,.35) inset}
 textarea{min-height:140px;resize:vertical;line-height:1.55}
 .charcount{text-align:right;font-family:var(--mono);font-size:.68rem;color:var(--muted2);margin-top:.35rem;transition:color .15s}
 .charcount.near{color:var(--amber)}
@@ -87,8 +91,9 @@ textarea{min-height:140px;resize:vertical;line-height:1.55}
 .btn{font-family:var(--disp);font-weight:700;letter-spacing:.1em;font-size:.82rem;text-transform:uppercase;border:none;border-radius:99px;padding:.85rem 1.2rem;cursor:pointer;width:100%;
   background:var(--gg);color:#151006;box-shadow:0 4px 20px rgba(212,175,55,.25);transition:.18s;
   display:flex;align-items:center;justify-content:center;gap:.5rem}
-.btn:hover{filter:brightness(1.06)}
-.btn:disabled{background:#3a3a3f;color:#7f838d;box-shadow:none;cursor:not-allowed}
+.btn:hover{filter:brightness(1.06);box-shadow:0 6px 26px rgba(212,175,55,.34)}
+.btn:active{transform:scale(.985)}
+.btn:disabled{background:#3a3a3f;color:#7f838d;box-shadow:none;cursor:not-allowed;transform:none}
 .spinner{width:14px;height:14px;border-radius:50%;border:2px solid rgba(21,16,6,.35);border-top-color:#151006;animation:spin .7s linear infinite}
 @keyframes spin{to{transform:rotate(360deg)}}
 
@@ -101,6 +106,13 @@ textarea{min-height:140px;resize:vertical;line-height:1.55}
 </style>
 </head>
 <body>
+<svg style="position:absolute;width:0;height:0" aria-hidden="true">
+  <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3l7 3v6c0 5-3.5 8-7 9-3.5-1-7-4-7-9V6l7-3z"/></symbol>
+  <symbol id="i-ban" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><line x1="5.5" y1="5.5" x2="18.5" y2="18.5"/></symbol>
+  <symbol id="i-alert" viewBox="0 0 24 24"><path d="M10.3 3.9L2.7 18a1.6 1.6 0 0 0 1.4 2.4h15.8a1.6 1.6 0 0 0 1.4-2.4L13.7 3.9a1.6 1.6 0 0 0-2.8 0z"/><line x1="12" y1="9.3" x2="12" y2="13.8"/><circle cx="12" cy="17" r="0.75" fill="currentColor" stroke="none"/></symbol>
+  <symbol id="i-send" viewBox="0 0 24 24"><path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4 20-7z"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 12.4l2.6 2.6L16 9.4"/></symbol>
+</svg>
 <header class="topbar">
   <div class="mark"><span></span> <b>DP LYNWOOD</b></div>
   <div class="sp"></div>
@@ -123,33 +135,28 @@ textarea{min-height:140px;resize:vertical;line-height:1.55}
     </div>
 
     <div id="blockBox" class="blockbox">
-      🚫 Este dispositivo está bloqueado para novos envios devido a registros anteriores.
+      <svg class="icon"><use href="#i-ban"></use></svg> Este dispositivo está bloqueado para novos envios devido a registros anteriores.
     </div>
 
     <form id="suggestionForm" autocomplete="off">
       <div class="field">
         <label for="nameInput">Nome / ID Policial</label>
         <input type="text" id="nameInput" maxlength="60" placeholder="Digite seu nome" required />
-        <div id="nameWarn" class="callout blocking"><span class="ic">⛔</span><span>Detectamos linguagem imprópria no nome. Remova antes de enviar — o envio fica bloqueado enquanto isso não for corrigido.</span></div>
+        <div id="nameWarn" class="callout blocking"><span class="ic"><svg class="icon"><use href="#i-ban"></use></svg></span><span>Detectamos linguagem imprópria no nome. Remova antes de enviar — o envio fica bloqueado enquanto isso não for corrigido.</span></div>
       </div>
 
       <div class="field">
         <label for="messageInput">Sugestão / Elogio / Reclamação</label>
-        <textarea id="messageInput" maxlength="1000" placeholder="Descreva com detalhes..." required></textarea>
-        <div class="charcount"><span id="charCount">0</span><span id="charMax">/1000</span></div>
-        <div id="msgWarn" class="callout blocking"><span class="ic">⛔</span><span>Detectamos linguagem imprópria no texto. Remova antes de enviar envio fica bloqueado enquanto isso não for corrigido.</span></div>
+        <textarea id="messageInput" maxlength="3000" placeholder="Descreva com detalhes..." required></textarea>
+        <div class="charcount"><span id="charCount">0</span><span id="charMax">/3000</span></div>
+        <div id="msgWarn" class="callout blocking"><span class="ic"><svg class="icon"><use href="#i-ban"></use></svg></span><span>Detectamos linguagem imprópria no texto. Remova antes de enviar — o envio fica bloqueado enquanto isso não for corrigido.</span></div>
       </div>
 
-      <button type="submit" class="btn" id="submitBtn"><span id="submitLabel">📨 Enviar Registro</span></button>
+      <button type="submit" class="btn" id="submitBtn"><span id="submitLabel"><svg class="icon"><use href="#i-send"></use></svg> Enviar Registro</span></button>
       <div id="statusMsg" class="statusmsg"></div>
     </form>
   </div>
-
-  <div class="foot">
-    <br/>
-  </div>
-</div>
-
+  <div class="foot"
 <!-- ==================== FIREBASE ==================== -->
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-database-compat.js"></script>
@@ -216,20 +223,41 @@ textarea{min-height:140px;resize:vertical;line-height:1.55}
     for(let i=0;i<parts.length;i++){ hash = ((hash << 5) - hash) + parts.charCodeAt(i); hash |= 0; }
     return "fp-" + Math.abs(hash).toString(36);
   }
+  // Evita que uma chamada trave para sempre (sem sucesso nem erro) quando a
+  // conexão não consegue ser estabelecida — depois de `ms` milissegundos sem
+  // resposta, rejeita com uma mensagem clara em vez de travar a tela.
+  function comTimeout(promise, ms = 10000){
+    return Promise.race([
+      promise,
+      new Promise((_, reject) => setTimeout(() => reject(new Error("TIMEOUT: sem resposta em " + (ms/1000) + "s — verifique sua internet e se scripts de gstatic.com/firebaseio.com não estão bloqueados por extensão/firewall.")), ms))
+    ]);
+  }
   async function getIP(){
-    try{ const res = await fetch("https://api.ipify.org?format=json"); const data = await res.json(); return data.ip || "desconhecido"; }
-    catch(e){ return "desconhecido"; }
+    try{
+      const ctrl = new AbortController();
+      const t = setTimeout(() => ctrl.abort(), 6000);
+      const res = await fetch("https://api.ipify.org?format=json", { signal: ctrl.signal });
+      clearTimeout(t);
+      const data = await res.json();
+      return data.ip || "desconhecido";
+    }catch(e){ return "desconhecido"; }
   }
   async function verificarBanimento(ip, deviceId, fingerprint){
     const valores = [ip, deviceId, fingerprint].filter(v => v && v !== "desconhecido");
     if(valores.length === 0) return false;
-    const queries = valores.map(v => db.ref("banned").orderByChild("value").equalTo(v).limitToFirst(1).once("value"));
+    const queries = valores.map(v => comTimeout(db.ref("banned").orderByChild("value").equalTo(v).limitToFirst(1).once("value")));
     const snaps = await Promise.all(queries);
     return snaps.some(s => s.exists());
   }
 </script>
 
 <script>
+  const ICO = {
+    ban: '<svg class="icon"><use href="#i-ban"></use></svg>',
+    alert: '<svg class="icon"><use href="#i-alert"></use></svg>',
+    check: '<svg class="icon"><use href="#i-check"></use></svg>',
+    send: '<svg class="icon"><use href="#i-send"></use></svg>'
+  };
   const form = document.getElementById("suggestionForm");
   const nameInput = document.getElementById("nameInput");
   const messageInput = document.getElementById("messageInput");
@@ -244,8 +272,8 @@ textarea{min-height:140px;resize:vertical;line-height:1.55}
   messageInput.addEventListener("input", () => {
     const len = messageInput.value.length;
     charCount.textContent = len;
-    charCount.parentElement.classList.toggle("near", len >= 850 && len < 1000);
-    charCount.parentElement.classList.toggle("full", len >= 1000);
+    charCount.parentElement.classList.toggle("near", len >= 2700 && len < 3000);
+    charCount.parentElement.classList.toggle("full", len >= 3000);
     msgWarn.classList.toggle("show", detectarPalavroes(messageInput.value).length > 0);
   });
   nameInput.addEventListener("input", () => {
@@ -259,7 +287,7 @@ textarea{min-height:140px;resize:vertical;line-height:1.55}
       const deviceId = getDeviceId(); const fingerprint = getFingerprint(); const ip = await getIP();
       window.__ip = ip; window.__deviceId = deviceId; window.__fingerprint = fingerprint;
       if(await verificarBanimento(ip, deviceId, fingerprint)){
-        blockBox.classList.add("show"); submitBtn.disabled = true; submitLabel.textContent = "🚫 Envio bloqueado";
+        blockBox.classList.add("show"); submitBtn.disabled = true; submitLabel.innerHTML = ICO.ban + " Envio bloqueado";
       }
     }catch(e){}
   })();
@@ -269,7 +297,7 @@ textarea{min-height:140px;resize:vertical;line-height:1.55}
     statusMsg.className = "statusmsg";
     const nome = nameInput.value.trim();
     const mensagem = messageInput.value.trim();
-    if(!nome || !mensagem){ setStatus("err", "⚠️ Preencha nome e mensagem antes de enviar."); return; }
+    if(!nome || !mensagem){ setStatus("err", ICO.alert + " Preencha nome e mensagem antes de enviar."); return; }
 
     // Linguagem imprópria bloqueia o envio por completo — nada é salvo no banco
     // enquanto o nome ou a mensagem contiverem alguma das palavras da lista.
@@ -278,7 +306,7 @@ textarea{min-height:140px;resize:vertical;line-height:1.55}
     if(palavroesNome.length + palavroesMsg.length > 0){
       nameWarn.classList.toggle("show", palavroesNome.length > 0);
       msgWarn.classList.toggle("show", palavroesMsg.length > 0);
-      setStatus("err", "⛔ Sua mensagem contém linguagem imprópria e não foi enviada. Revise o texto e tente novamente.");
+      setStatus("err", ICO.ban + " Sua mensagem contém linguagem imprópria e não foi enviada. Revise o texto e tente novamente.");
       return;
     }
 
@@ -292,25 +320,28 @@ textarea{min-height:140px;resize:vertical;line-height:1.55}
 
       if(await verificarBanimento(ip, deviceId, fingerprint)){
         blockBox.classList.add("show");
-        setStatus("err", "🚫 Este dispositivo está bloqueado para novos envios.");
-        submitBtn.disabled = true; submitLabel.textContent = "🚫 Envio bloqueado";
+        setStatus("err", ICO.ban + " Este dispositivo está bloqueado para novos envios.");
+        submitBtn.disabled = true; submitLabel.innerHTML = ICO.ban + " Envio bloqueado";
         return; // fica desabilitado — não passa pelo reset abaixo (só sucesso/erro genérico reabilitam)
       }
 
-      await db.ref("suggestions").push({
+      await comTimeout(db.ref("suggestions").push({
         name: nome, message: mensagem,
         ip, deviceId, fingerprint, userAgent: navigator.userAgent,
         status: "active", createdAt: firebase.database.ServerValue.TIMESTAMP
-      });
+      }));
 
       form.reset(); charCount.textContent = "0";
       nameWarn.classList.remove("show"); msgWarn.classList.remove("show");
-      setStatus("ok", "✅ Registro enviado com sucesso. Obrigado pela contribuição.");
-      submitBtn.disabled = false; submitLabel.textContent = "📨 Enviar Registro";
+      setStatus("ok", ICO.check + " Registro enviado com sucesso. Obrigado pela contribuição.");
+      submitBtn.disabled = false; submitLabel.innerHTML = ICO.send + " Enviar Registro";
     }catch(err){
       console.error(err);
-      setStatus("err", "❌ Não foi possível enviar agora. Verifique sua conexão e tente novamente.");
-      submitBtn.disabled = false; submitLabel.textContent = "📨 Enviar Registro";
+      const detalhe = err && err.message ? err.message : "";
+      setStatus("err", detalhe.startsWith("TIMEOUT")
+        ? ICO.ban + " " + detalhe
+        : ICO.ban + " Não foi possível enviar agora. Verifique sua conexão e tente novamente. Abra o Console do navegador (F12) para mais detalhes técnicos.");
+      submitBtn.disabled = false; submitLabel.innerHTML = ICO.send + " Enviar Registro";
     }
   });
 </script>
